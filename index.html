@@ -244,13 +244,67 @@
             border-radius: 20px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.1);
             border: 3px solid #2196F3;
+            position: relative;
+        }
+        
+        .sale-badge {
+            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .original-price {
+            font-size: 1.5rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 0.5rem;
         }
         
         .price {
-            font-size: 3rem;
-            color: #2196F3;
+            font-size: 3.5rem;
+            color: #10B981;
             font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .savings {
+            background: linear-gradient(45deg, #10B981, #059669);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: inline-block;
             margin-bottom: 1rem;
+        }
+        
+        .urgency-text {
+            color: #FF6B35;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .guarantee {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 1rem;
+            font-style: italic;
         }
         
         .price-features {
@@ -341,7 +395,7 @@
             <h1>Layer Flow</h1>
             <p class="subtitle">Professional After Effects Workflow Suite</p>
             <p class="features-count">40+ Professional Functions</p>
-            <a href="#pricing" class="cta-button">Get Layer Flow Now</a>
+            <a href="#pricing" class="cta-button">Get Launch Sale - $10 Only!</a>
         </div>
     </section>
 
@@ -430,10 +484,14 @@
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <h2>Professional Tools, Professional Price</h2>
+            <h2>Limited Time Launch Sale!</h2>
             <div class="price-card">
-                <div class="price">$29.99</div>
+                <div class="sale-badge">🚀 LAUNCH SALE</div>
+                <div class="original-price">$40.00</div>
+                <div class="price">$10.00</div>
+                <div class="savings">Save $30 (75% OFF)</div>
                 <h3>Layer Flow v1.0</h3>
+                <div class="urgency-text">⏰ Limited Time Offer - Don't Miss Out!</div>
                 <ul class="price-features">
                     <li>40+ Professional Functions</li>
                     <li>Complete Layer Management Suite</li>
@@ -443,7 +501,8 @@
                     <li>Installation Guide</li>
                     <li>Email Support</li>
                 </ul>
-                <a href="https://www.etsy.com/shop/KTForge" class="cta-button">Buy on Etsy</a>
+                <a href="https://www.etsy.com/shop/KTForge" class="cta-button">Get Launch Sale Price</a>
+                <p class="guarantee">30-day money-back guarantee</p>
             </div>
         </div>
     </section>
