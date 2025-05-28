@@ -1,491 +1,640 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layer Flow - Professional After Effects Script | 40+ Functions</title>
-    <meta name="description" content="Professional After Effects script with 40+ layer management functions. Streamline workflow, automate tasks, and boost productivity for motion graphics and video editing.">
-    <meta name="keywords" content="after effects script, layer management, motion graphics, video editing, automation, workflow">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Layer Flow - Professional After Effects Script | 40+ Functions
+    </title>
+    <meta
+      name="description"
+      content="Professional After Effects script with 40+ layer management functions. Streamline workflow, automate tasks, and boost productivity for motion graphics and video editing."
+    />
+    <meta
+      name="keywords"
+      content="after effects script, layer management, motion graphics, video editing, automation, workflow"
+    />
+
     <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="Layer Flow - Professional After Effects Script">
-    <meta property="og:description" content="40+ professional functions for streamlined After Effects workflow">
-    <meta property="og:type" content="website">
-    
+    <meta
+      property="og:title"
+      content="Layer Flow - Professional After Effects Script"
+    />
+    <meta
+      property="og:description"
+      content="40+ professional functions for streamlined After Effects workflow"
+    />
+    <meta property="og:type" content="website" />
+
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2D0YK2P6YM"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2D0YK2P6YM"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-2D0YK2P6YM');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-2D0YK2P6YM");
     </script>
-    
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* KT Forge Banner */
+      .ktforge-banner {
+        background: #0d1117;
+        color: #c9d1d9;
+        padding: 0.5rem 0;
+        text-align: center;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #21262d;
+      }
+
+      .ktforge-banner a {
+        color: #58a6ff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+
+      .ktforge-banner a:hover {
+        color: #79c0ff;
+      }
+
+      /* Header */
+      header {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: white;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 33px; /* Offset for KT Forge banner */
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #2196f3;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #2196f3;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          #1a1a2e 0%,
+          #16213e 50%,
+          #0f3460 100%
+        );
+        color: white;
+        padding: 140px 0 80px; /* Adjusted for banner */
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #2196f3, #21cbf3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero .subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: #b0bec5;
+      }
+
+      .hero .features-count {
+        font-size: 2rem;
+        color: #2196f3;
+        font-weight: bold;
+        margin-bottom: 3rem;
+      }
+
+      .by-ktforge {
+        font-size: 0.9rem;
+        color: #8b93a7;
+        margin-bottom: 2rem;
+      }
+
+      .by-ktforge a {
+        color: #58a6ff;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .by-ktforge a:hover {
+        color: #79c0ff;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: linear-gradient(45deg, #2196f3, #21cbf3);
+        color: white;
+        padding: 15px 40px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 8px 25px rgba(33, 150, 243, 0.3);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(33, 150, 243, 0.4);
+      }
+
+      /* Features Grid */
+      .features {
+        padding: 80px 0;
+        background: #f8f9fa;
+      }
+
+      .features h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: #1a1a2e;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        border-left: 5px solid #2196f3;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #2196f3;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #1a1a2e;
+      }
+
+      .feature-card p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* Stats Section */
+      .stats {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: white;
+        padding: 60px 0;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .stat-item h3 {
+        font-size: 3rem;
+        color: #2196f3;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-item p {
+        font-size: 1.2rem;
+        color: #b0bec5;
+      }
+
+      /* Video Demo Section */
+      .demo {
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      .demo h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: #1a1a2e;
+      }
+
+      .video-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #000;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      .video-placeholder {
+        background: linear-gradient(45deg, #1a1a2e, #2196f3);
+        color: white;
+        padding: 100px 20px;
+        font-size: 1.5rem;
+      }
+
+      /* Pricing Section */
+      .pricing {
+        background: #f8f9fa;
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      .pricing h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: #1a1a2e;
+      }
+
+      .price-card {
+        background: white;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+        border-radius: 20px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        border: 3px solid #2196f3;
+      }
+
+      .price {
+        font-size: 3rem;
+        color: #2196f3;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .price-features {
+        list-style: none;
+        margin: 2rem 0;
+      }
+
+      .price-features li {
+        padding: 0.5rem 0;
+        color: #666;
+      }
+
+      .price-features li:before {
+        content: "✓";
+        color: #10b981;
+        font-weight: bold;
+        margin-right: 0.5rem;
+      }
+
+      /* Footer */
+      footer {
+        background: #1a1a2e;
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-section h3 {
+        color: #2196f3;
+        margin-bottom: 1rem;
+      }
+
+      .footer-section a {
+        color: #b0bec5;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-section a:hover {
+        color: #2196f3;
+      }
+
+      .ktforge-footer {
+        border-top: 1px solid #333;
+        padding-top: 2rem;
+        margin-top: 2rem;
+      }
+
+      .ktforge-footer a {
+        color: #58a6ff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .ktforge-footer a:hover {
+        color: #79c0ff;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .ktforge-banner {
+          font-size: 0.8rem;
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
+
         header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+          top: 28px;
         }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #2196F3;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #2196F3;
-        }
-        
-        /* Hero Section */
+
         .hero {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
+          padding-top: 120px;
         }
-        
+
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #2196F3, #21CBF3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+          font-size: 2.5rem;
         }
-        
+
         .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #B0BEC5;
+          font-size: 1.2rem;
         }
-        
-        .hero .features-count {
-            font-size: 2rem;
-            color: #2196F3;
-            font-weight: bold;
-            margin-bottom: 3rem;
+
+        .nav-links {
+          flex-direction: column;
+          gap: 1rem;
         }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #2196F3, #21CBF3);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.3);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(33, 150, 243, 0.4);
-        }
-        
-        /* Features Grid */
-        .features {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-        
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1a1a2e;
-        }
-        
+
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+          grid-template-columns: 1fr;
         }
-        
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 5px solid #2196F3;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #2196F3;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #1a1a2e;
-        }
-        
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        /* Stats Section */
-        .stats {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 60px 0;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-        
-        .stat-item h3 {
-            font-size: 3rem;
-            color: #2196F3;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-item p {
-            font-size: 1.2rem;
-            color: #B0BEC5;
-        }
-        
-        /* Video Demo Section */
-        .demo {
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .demo h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #1a1a2e;
-        }
-        
-        .video-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #000;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-        }
-        
-        .video-placeholder {
-            background: linear-gradient(45deg, #1a1a2e, #2196F3);
-            color: white;
-            padding: 100px 20px;
-            font-size: 1.5rem;
-        }
-        
-        /* Pricing Section */
-        .pricing {
-            background: #f8f9fa;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .pricing h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1a1a2e;
-        }
-        
-        .price-card {
-            background: white;
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-            border: 3px solid #2196F3;
-        }
-        
-        .price {
-            font-size: 3rem;
-            color: #2196F3;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        
-        .price-features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-        
-        .price-features li {
-            padding: 0.5rem 0;
-            color: #666;
-        }
-        
-        .price-features li:before {
-            content: "✓";
-            color: #10B981;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a1a2e;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h3 {
-            color: #2196F3;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-section a {
-            color: #B0BEC5;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: #2196F3;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- KT Forge Banner -->
+    <div class="ktforge-banner">
+      🛠️ Proudly crafted by <a href="https://ktforge.dev" target="_blank">KT Forge</a> - Professional After Effects Tools
+    </div>
+
     <!-- Header -->
     <header>
-        <nav class="container">
-            <div class="logo">Layer Flow</div>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#demo">Demo</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+      <nav class="container">
+        <div class="logo">Layer Flow</div>
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>Layer Flow</h1>
-            <p class="subtitle">Professional After Effects Workflow Suite</p>
-            <p class="features-count">40+ Professional Functions</p>
-            <a href="#pricing" class="cta-button">Get Layer Flow Now</a>
-        </div>
+      <div class="container">
+        <h1>Layer Flow</h1>
+        <p class="subtitle">Professional After Effects Workflow Suite</p>
+        <p class="by-ktforge">by <a href="https://ktforge.dev" target="_blank">KT Forge</a></p>
+        <p class="features-count">40+ Professional Functions</p>
+        <a href="#pricing" class="cta-button">Get Layer Flow Now</a>
+      </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
-        <div class="container">
-            <h2>Transform Your After Effects Workflow</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🔧</div>
-                    <h3>Work Area Tools</h3>
-                    <p>Automatically set work areas to selected layers or entire compositions. Optimize preview rendering and focus your editing with precision timing control.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📋</div>
-                    <h3>Smart Copy & Paste</h3>
-                    <p>Copy layers with ALL properties preserved - effects, masks, keyframes, and colors. Perfect replication across projects with complete attribute transfer.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📦</div>
-                    <h3>Intelligent Pre-Compose</h3>
-                    <p>Three composition modes with smart layer detection. Prevents common errors while maintaining timing relationships and proper attribute handling.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Color Management</h3>
-                    <p>16 creative preset colors plus unlimited custom options. Organize complex projects with intelligent color coding and visual layer management.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🎭</div>
-                    <h3>Layer Creation Suite</h3>
-                    <p>Create perfect null objects, adjustment layers, and cameras with professional settings. Zero manual work, maximum precision every time.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Automation Tools</h3>
-                    <p>Strategic keyframe placement, batch renaming, and layer manipulation. Eliminate repetitive tasks and maintain creative momentum.</p>
-                </div>
-            </div>
+      <div class="container">
+        <h2>Transform Your After Effects Workflow</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🔧</div>
+            <h3>Work Area Tools</h3>
+            <p>
+              Automatically set work areas to selected layers or entire
+              compositions. Optimize preview rendering and focus your editing
+              with precision timing control.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h3>Smart Copy & Paste</h3>
+            <p>
+              Copy layers with ALL properties preserved - effects, masks,
+              keyframes, and colors. Perfect replication across projects with
+              complete attribute transfer.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h3>Intelligent Pre-Compose</h3>
+            <p>
+              Three composition modes with smart layer detection. Prevents
+              common errors while maintaining timing relationships and proper
+              attribute handling.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Color Management</h3>
+            <p>
+              16 creative preset colors plus unlimited custom options. Organize
+              complex projects with intelligent color coding and visual layer
+              management.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🎭</div>
+            <h3>Layer Creation Suite</h3>
+            <p>
+              Create perfect null objects, adjustment layers, and cameras with
+              professional settings. Zero manual work, maximum precision every
+              time.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Automation Tools</h3>
+            <p>
+              Strategic keyframe placement, batch renaming, and layer
+              manipulation. Eliminate repetitive tasks and maintain creative
+              momentum.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Stats Section -->
     <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>40+</h3>
-                    <p>Professional Functions</p>
-                </div>
-                <div class="stat-item">
-                    <h3>9</h3>
-                    <p>Tool Categories</p>
-                </div>
-                <div class="stat-item">
-                    <h3>1</h3>
-                    <p>Click Solutions</p>
-                </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
-                    <p>Workflow Enhancement</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h3>40+</h3>
+            <p>Professional Functions</p>
+          </div>
+          <div class="stat-item">
+            <h3>9</h3>
+            <p>Tool Categories</p>
+          </div>
+          <div class="stat-item">
+            <h3>1</h3>
+            <p>Click Solutions</p>
+          </div>
+          <div class="stat-item">
+            <h3>100%</h3>
+            <p>Workflow Enhancement</p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Demo Section -->
     <section class="demo" id="demo">
-        <div class="container">
-            <h2>See Layer Flow in Action</h2>
-            <div class="video-container">
-                <div class="video-placeholder">
-                    <p>🎥 Professional Workflow Demonstration</p>
-                    <p>Complete walkthrough of all 40+ functions</p>
-                    <p><a href="https://youtu.be/TCu9JGneKEM" style="color: #2196F3;">Watch on YouTube</a></p>
-                </div>
-            </div>
+      <div class="container">
+        <h2>See Layer Flow in Action</h2>
+        <div class="video-container">
+          <div class="video-placeholder">
+            <p>🎥 Professional Workflow Demonstration</p>
+            <p>Complete walkthrough of all 40+ functions</p>
+            <p>
+              <a href="https://youtu.be/TCu9JGneKEM" style="color: #2196f3"
+                >Watch on YouTube</a
+              >
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
-        <div class="container">
-            <h2>Limited Time Launch Sale!</h2>
-            <div class="price-card">
-                <div style="text-decoration: line-through; color: #666; font-size: 1.5rem; margin-bottom: 0.5rem;">$40.00</div>
-                <div class="price">$10.00</div>
-                <div style="background: linear-gradient(45deg, #FF6B35, #FF8C42); color: white; padding: 8px 16px; border-radius: 20px; font-weight: bold; margin: 1rem 0; display: inline-block;">🔥 Launch Special - Limited Time!</div>
-                <h3>Layer Flow v1.0</h3>
-                <ul class="price-features">
-                    <li>40+ Professional Functions</li>
-                    <li>Complete Layer Management Suite</li>
-                    <li>Intelligent Automation Tools</li>
-                    <li>Professional Interface</li>
-                    <li>Lifetime License</li>
-                    <li>Complete Documentation</li>
-                    <li>Installation Guide</li>
-                    <li>Email Support</li>
-                    <li>All Sales Final</li>
-                </ul>
-                <a href="https://www.etsy.com/shop/KTForge" class="cta-button">Buy on Etsy</a>
-            </div>
+      <div class="container">
+        <h2>Limited Time Launch Sale!</h2>
+        <div class="price-card">
+          <div
+            style="
+              text-decoration: line-through;
+              color: #666;
+              font-size: 1.5rem;
+              margin-bottom: 0.5rem;
+            "
+          >
+            $40.00
+          </div>
+          <div class="price">$10.00</div>
+          <div
+            style="
+              background: linear-gradient(45deg, #ff6b35, #ff8c42);
+              color: white;
+              padding: 8px 16px;
+              border-radius: 20px;
+              font-weight: bold;
+              margin: 1rem 0;
+              display: inline-block;
+            "
+          >
+            🔥 Launch Special - Limited Time!
+          </div>
+          <h3>Layer Flow v1.0</h3>
+          <ul class="price-features">
+            <li>40+ Professional Functions</li>
+            <li>Complete Layer Management Suite</li>
+            <li>Intelligent Automation Tools</li>
+            <li>Professional Interface</li>
+            <li>Lifetime License</li>
+            <li>Complete Documentation</li>
+            <li>Installation Guide</li>
+            <li>Email Support</li>
+            <li>All Sales Final</li>
+          </ul>
+          <a href="https://www.etsy.com/shop/KTForge" class="cta-button"
+            >Buy on Etsy</a
+          >
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Product</h3>
-                    <p><a href="#features">Features</a></p>
-                    <p><a href="#demo">Demo Video</a></p>
-                    <p><a href="#pricing">Pricing</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Support</h3>
-                    <p><a href="mailto:officialknifetastic@gmail.com">Email Support</a></p>
-                    <p><a href="https://www.etsy.com/shop/KTForge">Etsy Store</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Legal</h3>
-                    <p>End User License Agreement</p>
-                    <p>© 2025 Knife Tastic</p>
-                </div>
-            </div>
-            <p style="border-top: 1px solid #333; padding-top: 2rem; color: #B0BEC5;">
-                Layer Flow v1.0 - Professional After Effects Workflow Enhancement
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Product</h3>
+            <p><a href="#features">Features</a></p>
+            <p><a href="#demo">Demo Video</a></p>
+            <p><a href="#pricing">Pricing</a></p>
+          </div>
+          <div class="footer-section">
+            <h3>Support</h3>
+            <p>
+              <a href="mailto:officialknifetastic@gmail.com">Email Support</a>
             </p>
+            <p><a href="https://www.etsy.com/shop/KTForge">Etsy Store</a></p>
+          </div>
+          <div class="footer-section">
+            <h3>Legal</h3>
+            <p>End User License Agreement</p>
+            <p>© 2025 Knife Tastic</p>
+          </div>
         </div>
+        <div class="ktforge-footer">
+          <p>Layer Flow is a product of <a href="https://ktforge.dev" target="_blank">KT Forge</a></p>
+          <p style="color: #b0bec5; margin-top: 0.5rem;">Professional After Effects Workflow Enhancement</p>
+        </div>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
