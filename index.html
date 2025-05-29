@@ -150,6 +150,24 @@
           transform: scale(1.25) translateY(-40px);
         }
       }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes verseGlow {
+        0%, 100% {
+          text-shadow: 0 0 20px rgba(33, 203, 243, 0.6), 0 0 40px rgba(33, 150, 243, 0.4);
+        }
+        50% {
+          text-shadow: 0 0 22px rgba(33, 203, 243, 0.7), 0 0 45px rgba(33, 150, 243, 0.5);
+        }
+      }
 
       .hero h1 {
         font-size: clamp(2.75rem, 6vw, 4.2rem);
@@ -175,6 +193,33 @@
         color: var(--blue-400);
         font-weight: 700;
         margin-bottom: 3rem;
+      }
+      
+      .hero .verse {
+        font-size: 1.15rem;
+        color: #ffffff;
+        font-style: italic;
+        font-weight: 500;
+        margin: 0 auto 3rem;
+        max-width: 800px;
+        letter-spacing: 0.5px;
+        text-shadow: 0 0 20px rgba(33, 203, 243, 0.6), 0 0 40px rgba(33, 150, 243, 0.4);
+        animation: fadeIn 1.2s ease-out, verseGlow 6s ease-in-out infinite;
+        line-height: 1.6;
+        position: relative;
+        z-index: 2;
+        padding: 0 1rem 1.5rem;
+        border-bottom: 1px solid rgba(196, 210, 255, 0.2);
+        transition: border-color 0.3s;
+      }
+      .hero .verse:hover {
+        border-bottom-color: rgba(196, 210, 255, 0.4);
+      }
+      .hero .verse-ref {
+        font-size: 0.9rem;
+        margin-top: 0.75rem;
+        opacity: 0.9;
+        color: rgba(196, 210, 255, 0.9);
       }
 
       .cta-button {
@@ -311,7 +356,7 @@
         position: relative;
         overflow: hidden;
       }
-      
+
       /* Background decorative elements */
       .relief-image-wrapper::before {
         content: "🎯";
@@ -321,17 +366,17 @@
         animation: float 6s ease-in-out infinite;
         z-index: 0;
       }
-      
+
       /* Add a subtle particle effect around the pill */
       .relief-image-wrapper::after {
-        content: '✨';
+        content: "✨";
         position: absolute;
         font-size: 1.5rem;
         animation: sparkle 4s ease-in-out infinite;
         opacity: 0.6;
         z-index: 3;
       }
-      
+
       /* Updated 3D pill image styles */
       .relief-pill-3d {
         max-width: 200px;
@@ -342,23 +387,25 @@
         filter: drop-shadow(0 10px 25px rgba(33, 150, 243, 0.3));
         transition: transform 0.3s ease;
       }
-      
+
       .relief-pill-3d:hover {
         transform: scale(1.1) rotate(5deg);
       }
-      
+
       /* Enhanced animations */
       @keyframes float {
-        0%, 100% { 
-          transform: translateY(0) rotate(0deg); 
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
         }
-        50% { 
-          transform: translateY(-20px) rotate(5deg); 
+        50% {
+          transform: translateY(-20px) rotate(5deg);
         }
       }
-      
+
       @keyframes pillFloat {
-        0%, 100% {
+        0%,
+        100% {
           transform: translateY(0px) rotate(-2deg) scale(1);
         }
         33% {
@@ -368,47 +415,53 @@
           transform: translateY(-6px) rotate(-1deg) scale(1.01);
         }
       }
-      
+
       @keyframes sparkle {
-        0%, 100% { 
+        0%,
+        100% {
           transform: translate(80px, -40px) rotate(0deg);
           opacity: 0;
         }
-        25% { 
+        25% {
           transform: translate(60px, -60px) rotate(90deg);
           opacity: 0.8;
         }
-        50% { 
+        50% {
           transform: translate(40px, -80px) rotate(180deg);
           opacity: 1;
         }
-        75% { 
+        75% {
           transform: translate(20px, -60px) rotate(270deg);
           opacity: 0.8;
         }
       }
-      
+
       /* Pulsing glow effect */
       .pill-glow {
         position: relative;
       }
-      
+
       .pill-glow::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 50%;
         left: 50%;
         width: 120%;
         height: 120%;
-        background: radial-gradient(circle, rgba(33, 150, 243, 0.3) 0%, transparent 70%);
+        background: radial-gradient(
+          circle,
+          rgba(33, 150, 243, 0.3) 0%,
+          transparent 70%
+        );
         transform: translate(-50%, -50%);
         border-radius: 50%;
         animation: pillGlow 2s ease-in-out infinite;
         z-index: 1;
       }
-      
+
       @keyframes pillGlow {
-        0%, 100% {
+        0%,
+        100% {
           opacity: 0.3;
           transform: translate(-50%, -50%) scale(1);
         }
@@ -548,6 +601,13 @@
         .hero h1 {
           font-size: 2.4rem;
         }
+        .hero .verse {
+          font-size: 0.9rem;
+          margin-bottom: 2rem;
+        }
+        .hero .verse-ref {
+          font-size: 0.8rem;
+        }
         .features-grid {
           grid-template-columns: 1fr;
         }
@@ -583,7 +643,11 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="container">
+      <div class="container" style="padding: 0 20px;">
+        <div class="verse">
+          "Be of good courage, and he shall strengthen your heart, all ye that hope in the Lord"
+          <div class="verse-ref">— Psalm 31:24</div>
+        </div>
         <h1>Layer Flow</h1>
         <p class="subtitle">Professional After Effects Workflow Suite</p>
         <p class="features-count">40+ Professional Functions</p>
@@ -664,9 +728,9 @@
           <div class="relief-image-wrapper">
             <!-- Your 3D pill image -->
             <div class="pill-glow">
-              <img 
-                src="3d-pill.png" 
-                alt="Layer Flow Relief - 3D Medical Pill" 
+              <img
+                src="3d-pill.png"
+                alt="Layer Flow Relief - 3D Medical Pill"
                 class="relief-pill-3d"
               />
             </div>
