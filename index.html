@@ -261,7 +261,7 @@
       }
 
       /* -----------------------------
-       RELIEF SHOWCASE SECTION
+       RELIEF SHOWCASE SECTION - UPDATED WITH 3D PILL
     ----------------------------- */
       .relief-showcase {
         background: linear-gradient(135deg, #e0f7ff, #f8faff);
@@ -311,58 +311,110 @@
         position: relative;
         overflow: hidden;
       }
-      /* Placeholder for the image - you can replace with actual image */
+      
+      /* Background decorative elements */
       .relief-image-wrapper::before {
         content: "🎯";
         font-size: 8rem;
         position: absolute;
         opacity: 0.1;
         animation: float 6s ease-in-out infinite;
+        z-index: 0;
       }
-      .relief-graphic {
-        max-width: 100%;
+      
+      /* Add a subtle particle effect around the pill */
+      .relief-image-wrapper::after {
+        content: '✨';
+        position: absolute;
+        font-size: 1.5rem;
+        animation: sparkle 4s ease-in-out infinite;
+        opacity: 0.6;
+        z-index: 3;
+      }
+      
+      /* Updated 3D pill image styles */
+      .relief-pill-3d {
+        max-width: 200px;
         height: auto;
-        border-radius: var(--radius);
         position: relative;
-        z-index: 1;
+        z-index: 2;
+        animation: pillFloat 3s ease-in-out infinite;
+        filter: drop-shadow(0 10px 25px rgba(33, 150, 243, 0.3));
+        transition: transform 0.3s ease;
       }
-      /* Animated icon placeholder - replace with actual image */
-      .relief-icon-placeholder {
-        font-size: 6rem;
-        animation: pulse 2s ease-in-out infinite;
-        color: var(--blue-400);
+      
+      .relief-pill-3d:hover {
+        transform: scale(1.1) rotate(5deg);
       }
+      
+      /* Enhanced animations */
       @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0) rotate(0deg);
+        0%, 100% { 
+          transform: translateY(0) rotate(0deg); 
         }
-        50% {
-          transform: translateY(-20px) rotate(5deg);
+        50% { 
+          transform: translateY(-20px) rotate(5deg); 
         }
       }
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
+      
+      @keyframes pillFloat {
+        0%, 100% {
+          transform: translateY(0px) rotate(-2deg) scale(1);
+        }
+        33% {
+          transform: translateY(-12px) rotate(1deg) scale(1.02);
+        }
+        66% {
+          transform: translateY(-6px) rotate(-1deg) scale(1.01);
+        }
+      }
+      
+      @keyframes sparkle {
+        0%, 100% { 
+          transform: translate(80px, -40px) rotate(0deg);
+          opacity: 0;
+        }
+        25% { 
+          transform: translate(60px, -60px) rotate(90deg);
           opacity: 0.8;
         }
-        50% {
-          transform: scale(1.1);
+        50% { 
+          transform: translate(40px, -80px) rotate(180deg);
           opacity: 1;
         }
+        75% { 
+          transform: translate(20px, -60px) rotate(270deg);
+          opacity: 0.8;
+        }
       }
-
-      @media (max-width: 768px) {
-        .relief-card {
-          flex-direction: column;
+      
+      /* Pulsing glow effect */
+      .pill-glow {
+        position: relative;
+      }
+      
+      .pill-glow::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120%;
+        height: 120%;
+        background: radial-gradient(circle, rgba(33, 150, 243, 0.3) 0%, transparent 70%);
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        animation: pillGlow 2s ease-in-out infinite;
+        z-index: 1;
+      }
+      
+      @keyframes pillGlow {
+        0%, 100% {
+          opacity: 0.3;
+          transform: translate(-50%, -50%) scale(1);
         }
-        .relief-text,
-        .relief-image-wrapper {
-          padding: 2rem;
-        }
-        .relief-text h2 {
-          font-size: 2rem;
+        50% {
+          opacity: 0.6;
+          transform: translate(-50%, -50%) scale(1.1);
         }
       }
 
@@ -454,6 +506,24 @@
         color: var(--blue-500);
         margin: 0.5rem 0;
       }
+      .price-features {
+        list-style: none;
+        margin: 2rem 0;
+        text-align: left;
+      }
+      .price-features li {
+        padding: 0.5rem 0;
+        color: var(--txt-500);
+        position: relative;
+        padding-left: 1.5rem;
+      }
+      .price-features li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--blue-500);
+        font-weight: bold;
+      }
 
       /* -----------------------------
        FOOTER
@@ -480,6 +550,19 @@
         }
         .features-grid {
           grid-template-columns: 1fr;
+        }
+        .relief-card {
+          flex-direction: column;
+        }
+        .relief-text,
+        .relief-image-wrapper {
+          padding: 2rem;
+        }
+        .relief-text h2 {
+          font-size: 2rem;
+        }
+        .relief-pill-3d {
+          max-width: 150px;
         }
       }
     </style>
@@ -565,7 +648,7 @@
       </div>
     </section>
 
-    <!-- RELIEF SHOWCASE -->
+    <!-- RELIEF SHOWCASE WITH 3D PILL -->
     <section class="relief-showcase">
       <div class="container">
         <div class="relief-card">
@@ -579,9 +662,14 @@
             </p>
           </div>
           <div class="relief-image-wrapper">
-            <!-- Replace this placeholder with your actual relief image -->
-            <div class="relief-icon-placeholder">💊</div>
-            <!-- <img src="generated-relief-graphic.png" alt="Layer Flow Relief Illustration" class="relief-graphic" /> -->
+            <!-- Your 3D pill image -->
+            <div class="pill-glow">
+              <img 
+                src="3d-pill.png" 
+                alt="Layer Flow Relief - 3D Medical Pill" 
+                class="relief-pill-3d"
+              />
+            </div>
           </div>
         </div>
       </div>
