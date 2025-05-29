@@ -261,6 +261,99 @@
       }
 
       /* -----------------------------
+       RELIEF SHOWCASE SECTION
+    ----------------------------- */
+      .relief-showcase {
+        background: linear-gradient(135deg, #e0f7ff, #f8faff);
+        padding: 100px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+      }
+      .relief-card {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        max-width: 1100px;
+        box-shadow: var(--shadow-lg);
+        background: #fff;
+        border-radius: var(--radius);
+        overflow: hidden;
+        margin: 0 24px;
+      }
+      .relief-text {
+        flex: 1;
+        padding: 3rem;
+        min-width: 300px;
+      }
+      .relief-text h2 {
+        font-size: 2.5rem;
+        background: linear-gradient(45deg, var(--blue-500), var(--blue-400));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+      .relief-text p {
+        font-size: 1.15rem;
+        color: var(--txt-500);
+        line-height: 1.8;
+      }
+      .relief-image-wrapper {
+        flex: 1;
+        background: linear-gradient(135deg, #eef6fb, #e0f2fe);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem;
+        min-height: 350px;
+        position: relative;
+        overflow: hidden;
+      }
+      /* Placeholder for the image - you can replace with actual image */
+      .relief-image-wrapper::before {
+        content: "🎯";
+        font-size: 8rem;
+        position: absolute;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+      }
+      .relief-graphic {
+        max-width: 100%;
+        height: auto;
+        border-radius: var(--radius);
+        position: relative;
+        z-index: 1;
+      }
+      /* Animated icon placeholder - replace with actual image */
+      .relief-icon-placeholder {
+        font-size: 6rem;
+        animation: pulse 2s ease-in-out infinite;
+        color: var(--blue-400);
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+      }
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.1); opacity: 1; }
+      }
+
+      @media (max-width: 768px) {
+        .relief-card {
+          flex-direction: column;
+        }
+        .relief-text, .relief-image-wrapper {
+          padding: 2rem;
+        }
+        .relief-text h2 {
+          font-size: 2rem;
+        }
+      }
+
+      /* -----------------------------
        STATS SECTION
     ----------------------------- */
       .stats {
@@ -459,6 +552,23 @@
       </div>
     </section>
 
+    <!-- RELIEF SHOWCASE -->
+    <section class="relief-showcase">
+      <div class="container">
+        <div class="relief-card">
+          <div class="relief-text">
+            <h2>Layer Flow Relief</h2>
+            <p>Precomp pain? Layer chaos? Timeline tedium? Our users report instant workflow relief with just one click. Layer Flow eliminates the friction between your ideas and their execution, turning hours of manual work into seconds of automated bliss.</p>
+          </div>
+          <div class="relief-image-wrapper">
+            <!-- Replace this placeholder with your actual relief image -->
+            <div class="relief-icon-placeholder">💊</div>
+            <!-- <img src="generated-relief-graphic.png" alt="Layer Flow Relief Illustration" class="relief-graphic" /> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- STATS -->
     <section class="stats">
       <div class="container">
@@ -561,8 +671,6 @@
         <p style="margin-bottom: 1rem">© 2025 Knife Tastic — Layer Flow v1.0</p>
         <p>
           <a href="mailto:officialknifetastic@gmail.com">Email Support</a
-          >  |  <a href="https://ktforge.dev" target="_blank"
-            >KTForge.dev</a
           >  |  <a href="https://layerflow.shop" target="_blank"
             >LayerFlow.shop</a
           >
