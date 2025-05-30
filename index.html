@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2D0YK2P6YM"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-2D0YK2P6YM');
-    </script>
-    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Layer Flow — After Effects Workflow Suite (Enhanced UI)</title>
@@ -31,6 +22,183 @@
       referrerpolicy="no-referrer"
     />
 
+    <!-- Analytics Consent CSS -->
+    <style>
+      #analytics-consent-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(26, 26, 46, 0.95);
+        color: #fff;
+        padding: 20px;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        z-index: 99999;
+        font-family: Arial, sans-serif;
+        display: none;
+        animation: slideUp 0.3s ease-out;
+      }
+
+      @keyframes slideUp {
+        from { transform: translateY(100%); }
+        to { transform: translateY(0); }
+      }
+
+      #analytics-consent-banner .consent-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      #analytics-consent-banner .consent-text {
+        flex: 1;
+        min-width: 300px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      #analytics-consent-banner .consent-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      #analytics-consent-banner button {
+        padding: 10px 24px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      #analytics-consent-banner .accept-btn {
+        background: #2196f3;
+        color: white;
+      }
+
+      #analytics-consent-banner .accept-btn:hover {
+        background: #1976d2;
+        transform: translateY(-1px);
+      }
+
+      #analytics-consent-banner .decline-btn {
+        background: #666;
+        color: white;
+      }
+
+      #analytics-consent-banner .decline-btn:hover {
+        background: #555;
+      }
+
+      #analytics-consent-banner a {
+        color: #2196f3;
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        #analytics-consent-banner .consent-container {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        #analytics-consent-banner .consent-buttons {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+    
+    <!-- Analytics Consent Mode Setup - MUST be first -->
+    <script>
+      // Define dataLayer and the gtag function
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Set default consent - ONLY analytics, no ad tracking
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        // We're explicitly setting ad storage to denied permanently
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+      });
+    </script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2D0YK2P6YM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2D0YK2P6YM');
+    </script>
+
+    <!-- Analytics Consent Logic -->
+    <script>
+      // Check if user has already made a choice
+      const analyticsConsent = localStorage.getItem('analyticsConsent');
+      
+      if (!analyticsConsent) {
+        // No previous choice, show banner
+        window.addEventListener('DOMContentLoaded', function() {
+          document.getElementById('analytics-consent-banner').style.display = 'block';
+        });
+      } else if (analyticsConsent === 'granted') {
+        // User previously accepted analytics
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted'
+        });
+      }
+
+      // Handle user's consent choice
+      function handleAnalyticsConsent(accepted) {
+        const banner = document.getElementById('analytics-consent-banner');
+        
+        if (accepted) {
+          // User accepted analytics only
+          gtag('consent', 'update', {
+            'analytics_storage': 'granted'
+            // Ad consent remains denied
+          });
+          localStorage.setItem('analyticsConsent', 'granted');
+          localStorage.setItem('analyticsConsentDate', new Date().toISOString());
+        } else {
+          // User declined analytics
+          gtag('consent', 'update', {
+            'analytics_storage': 'denied'
+          });
+          localStorage.setItem('analyticsConsent', 'denied');
+          localStorage.setItem('analyticsConsentDate', new Date().toISOString());
+        }
+        
+        // Hide banner with animation
+        banner.style.animation = 'slideUp 0.3s ease-out reverse';
+        setTimeout(() => {
+          banner.style.display = 'none';
+        }, 300);
+      }
+
+      // Optional: Re-show consent banner after 365 days (1 year for analytics)
+      const consentDate = localStorage.getItem('analyticsConsentDate');
+      if (consentDate) {
+        const daysSinceConsent = (new Date() - new Date(consentDate)) / (1000 * 60 * 60 * 24);
+        if (daysSinceConsent > 365) {
+          localStorage.removeItem('analyticsConsent');
+          localStorage.removeItem('analyticsConsentDate');
+          window.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('analytics-consent-banner').style.display = 'block';
+          });
+        }
+      }
+    </script>
+
+    <!-- Main Site Styles -->
     <style>
       /* -----------------------------
        CORE VARIABLES & RESETS
@@ -641,6 +809,21 @@
     </style>
   </head>
   <body>
+    <!-- Analytics Consent Banner (RIGHT AFTER BODY TAG) -->
+    <div id="analytics-consent-banner">
+      <div class="consent-container">
+        <div class="consent-text">
+          We use analytics cookies to understand how visitors interact with our website, helping us improve your experience. 
+          No advertising cookies are used on this site.
+          <a href="/privacy-policy" target="_blank">Learn more</a>
+        </div>
+        <div class="consent-buttons">
+          <button class="decline-btn" onclick="handleAnalyticsConsent(false)">Decline</button>
+          <button class="accept-btn" onclick="handleAnalyticsConsent(true)">Accept Analytics</button>
+        </div>
+      </div>
+    </div>
+
     <!-- HEADER -->
     <header>
       <nav>
@@ -856,7 +1039,7 @@
         <p>
           <a href="mailto:officialknifetastic@gmail.com">Email Support</a> |
           <a href="https://layerflow.shop" target="_blank">LayerFlow.shop</a> |
-          <a href="https://ktforge.dev" target="_blank"> Crafted by KTForge</a>
+          <a href="https://ktforge.com" target="_blank"> Crafted by KTForge</a>
         </p>
       </div>
     </footer>
