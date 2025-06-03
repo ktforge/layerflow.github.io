@@ -3,11 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Layer Flow — After Effects Workflow Suite (Enhanced UI)</title>
+    <title>Layer Flow — Professional After Effects Workflow Tools</title>
     <meta
       name="description"
-      content="40+ professional layer‑management tools for Adobe After Effects. Faster UI, richer graphics, and a friction‑free workflow."
+      content="Professional After Effects workflow tools for motion designers and video editors. 40+ automated functions for layer management, copy-paste, pre-composing, and keyframe animation."
     />
+    <meta
+      name="keywords"
+      content="After Effects tools, motion graphics, video editing, layer management, workflow automation, animation tools"
+    />
+
+    <!-- Pinterest-specific meta tags -->
+    <meta name="pinterest-rich-pins" content="true" />
+    <meta name="pinterest" content="nopin" description="This page cannot be pinned." />
+    
+    <!-- Open Graph meta tags for social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Layer Flow — Professional After Effects Workflow Tools" />
+    <meta
+      property="og:description"
+      content="Transform your After Effects workflow with 40+ professional functions for layer management, animation, and automation."
+    />
+    <meta property="og:url" content="https://layerflow.shop" />
+    <meta property="og:site_name" content="Layer Flow" />
+    <meta property="og:image" content="https://layerflow.shop/images/layer-flow-preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Layer Flow After Effects Workflow Tools" />
+
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Layer Flow — Professional After Effects Workflow Tools" />
+    <meta
+      name="twitter:description"
+      content="Transform your After Effects workflow with 40+ professional functions for layer management, animation, and automation."
+    />
+    <meta name="twitter:image" content="https://layerflow.shop/images/layer-flow-preview.jpg" />
+
+    <!-- Structured Data for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Layer Flow",
+      "description": "Professional After Effects workflow automation tools with 40+ functions for layer management, copy-paste operations, pre-composing, and keyframe animation.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Windows, macOS",
+      "offers": {
+        "@type": "Offer",
+        "price": "10.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "KT Forge"
+        }
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "KT Forge",
+        "url": "https://ktforge.com"
+      },
+      "softwareVersion": "1.0",
+      "fileSize": "200KB",
+      "requirements": "Adobe After Effects CC 2018 or later",
+      "screenshot": "https://layerflow.shop/images/layer-flow-interface.jpg",
+      "downloadUrl": "https://www.etsy.com/shop/KTForge",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "1"
+      }
+    }
+    </script>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://layerflow.shop/" />
 
     <!-- Fonts & Icons -->
     <link
@@ -40,8 +111,12 @@
       }
 
       @keyframes slideUp {
-        from { transform: translateY(100%); }
-        to { transform: translateY(0); }
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
       }
 
       #analytics-consent-banner .consent-container {
@@ -106,93 +181,109 @@
           flex-direction: column;
           text-align: center;
         }
-        
+
         #analytics-consent-banner .consent-buttons {
           width: 100%;
           justify-content: center;
         }
       }
     </style>
-    
+
     <!-- Analytics Consent Mode Setup - MUST be first -->
     <script>
       // Define dataLayer and the gtag function
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
 
       // Set default consent - ONLY analytics, no ad tracking
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
+      gtag("consent", "default", {
+        analytics_storage: "denied",
         // We're explicitly setting ad storage to denied permanently
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied'
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
       });
     </script>
-    
+
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2D0YK2P6YM"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2D0YK2P6YM"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-2D0YK2P6YM');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-2D0YK2P6YM");
     </script>
 
     <!-- Analytics Consent Logic -->
     <script>
       // Check if user has already made a choice
-      const analyticsConsent = localStorage.getItem('analyticsConsent');
-      
+      const analyticsConsent = localStorage.getItem("analyticsConsent");
+
       if (!analyticsConsent) {
         // No previous choice, show banner
-        window.addEventListener('DOMContentLoaded', function() {
-          document.getElementById('analytics-consent-banner').style.display = 'block';
+        window.addEventListener("DOMContentLoaded", function () {
+          document.getElementById("analytics-consent-banner").style.display =
+            "block";
         });
-      } else if (analyticsConsent === 'granted') {
+      } else if (analyticsConsent === "granted") {
         // User previously accepted analytics
-        gtag('consent', 'update', {
-          'analytics_storage': 'granted'
+        gtag("consent", "update", {
+          analytics_storage: "granted",
         });
       }
 
       // Handle user's consent choice
       function handleAnalyticsConsent(accepted) {
-        const banner = document.getElementById('analytics-consent-banner');
-        
+        const banner = document.getElementById("analytics-consent-banner");
+
         if (accepted) {
           // User accepted analytics only
-          gtag('consent', 'update', {
-            'analytics_storage': 'granted'
+          gtag("consent", "update", {
+            analytics_storage: "granted",
             // Ad consent remains denied
           });
-          localStorage.setItem('analyticsConsent', 'granted');
-          localStorage.setItem('analyticsConsentDate', new Date().toISOString());
+          localStorage.setItem("analyticsConsent", "granted");
+          localStorage.setItem(
+            "analyticsConsentDate",
+            new Date().toISOString()
+          );
         } else {
           // User declined analytics
-          gtag('consent', 'update', {
-            'analytics_storage': 'denied'
+          gtag("consent", "update", {
+            analytics_storage: "denied",
           });
-          localStorage.setItem('analyticsConsent', 'denied');
-          localStorage.setItem('analyticsConsentDate', new Date().toISOString());
+          localStorage.setItem("analyticsConsent", "denied");
+          localStorage.setItem(
+            "analyticsConsentDate",
+            new Date().toISOString()
+          );
         }
-        
+
         // Hide banner with animation
-        banner.style.animation = 'slideUp 0.3s ease-out reverse';
+        banner.style.animation = "slideUp 0.3s ease-out reverse";
         setTimeout(() => {
-          banner.style.display = 'none';
+          banner.style.display = "none";
         }, 300);
       }
 
       // Optional: Re-show consent banner after 365 days (1 year for analytics)
-      const consentDate = localStorage.getItem('analyticsConsentDate');
+      const consentDate = localStorage.getItem("analyticsConsentDate");
       if (consentDate) {
-        const daysSinceConsent = (new Date() - new Date(consentDate)) / (1000 * 60 * 60 * 24);
+        const daysSinceConsent =
+          (new Date() - new Date(consentDate)) / (1000 * 60 * 60 * 24);
         if (daysSinceConsent > 365) {
-          localStorage.removeItem('analyticsConsent');
-          localStorage.removeItem('analyticsConsentDate');
-          window.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('analytics-consent-banner').style.display = 'block';
+          localStorage.removeItem("analyticsConsent");
+          localStorage.removeItem("analyticsConsentDate");
+          window.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("analytics-consent-banner").style.display =
+              "block";
           });
         }
       }
@@ -235,6 +326,12 @@
       a {
         text-decoration: none;
         color: inherit;
+      }
+
+      /* Pinterest-friendly content styling */
+      .pinterest-friendly {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       }
 
       /* -----------------------------
@@ -772,6 +869,40 @@
         color: var(--blue-400);
       }
 
+      /* Pinterest-optimized content sections */
+      .content-quality {
+        padding: 60px 0;
+        background: white;
+      }
+
+      .quality-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .quality-item {
+        text-align: center;
+        padding: 2rem;
+        border-radius: 12px;
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+      }
+
+      .quality-item h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        color: var(--txt-700);
+      }
+
+      .quality-item p {
+        color: var(--txt-500);
+        line-height: 1.6;
+      }
+
       /* -----------------------------
        RESPONSIVE QUICK FIXES (inherit original breakpoints)
     ----------------------------- */
@@ -808,18 +939,23 @@
       }
     </style>
   </head>
-  <body>
+  <body class="pinterest-friendly">
     <!-- Analytics Consent Banner (RIGHT AFTER BODY TAG) -->
     <div id="analytics-consent-banner">
       <div class="consent-container">
         <div class="consent-text">
-          We use analytics cookies to understand how visitors interact with our website, helping us improve your experience. 
-          No advertising cookies are used on this site.
+          We use analytics cookies to understand how visitors interact with our
+          website, helping us improve your experience. No advertising cookies
+          are used on this site.
           <a href="/privacy-policy" target="_blank">Learn more</a>
         </div>
         <div class="consent-buttons">
-          <button class="decline-btn" onclick="handleAnalyticsConsent(false)">Decline</button>
-          <button class="accept-btn" onclick="handleAnalyticsConsent(true)">Accept Analytics</button>
+          <button class="decline-btn" onclick="handleAnalyticsConsent(false)">
+            Decline
+          </button>
+          <button class="accept-btn" onclick="handleAnalyticsConsent(true)">
+            Accept Analytics
+          </button>
         </div>
       </div>
     </div>
@@ -831,7 +967,7 @@
         <ul class="nav-links">
           <li><a href="#features">Features</a></li>
           <li><a href="#demo">Demo</a></li>
-          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#pricing">Get Started</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -846,9 +982,41 @@
           <div class="verse-ref">— Psalm 31:24</div>
         </div>
         <h1>Layer Flow</h1>
-        <p class="subtitle">Professional After Effects Workflow Suite</p>
+        <p class="subtitle">Professional After Effects Workflow Tools</p>
         <p class="features-count">40+ Professional Functions</p>
         <a href="#pricing" class="cta-button btn-glow">Get Layer Flow Now</a>
+      </div>
+    </section>
+
+    <!-- CONTENT QUALITY SECTION FOR PINTEREST -->
+    <section class="content-quality">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem; color: var(--txt-700);">
+          Professional Motion Graphics Tools
+        </h2>
+        <div class="quality-grid">
+          <div class="quality-item">
+            <h3>Time-Saving Automation</h3>
+            <p>
+              Reduce hours of manual work to seconds with intelligent automation tools 
+              designed specifically for motion graphics professionals and video editors.
+            </p>
+          </div>
+          <div class="quality-item">
+            <h3>Industry-Standard Quality</h3>
+            <p>
+              Built by professionals for professionals, ensuring compatibility with 
+              industry workflows and maintaining the highest quality standards.
+            </p>
+          </div>
+          <div class="quality-item">
+            <h3>Easy Integration</h3>
+            <p>
+              Seamlessly integrates with your existing After Effects workflow without 
+              disrupting your creative process or requiring extensive learning.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -859,50 +1027,50 @@
         <div class="features-grid">
           <div class="feature-card">
             <div class="feature-icon">🔧</div>
-            <h3>Work Area Tools</h3>
+            <h3>Work Area Management</h3>
             <p>
-              Automatically set the work area to selected layers or entire
-              compositions, achieving precise timing with a single click.
+              Automatically adjust work areas to match layer timing with precision, 
+              ensuring efficient preview rendering and focused editing sessions.
             </p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">📋</div>
             <h3>Smart Copy & Paste</h3>
             <p>
-              Duplicate layers with every property preserved, including effects,
-              masks, keyframes, and colors.
+              Copy layers with complete property preservation including effects, 
+              masks, keyframes, and color labels for perfect cross-project consistency.
             </p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">📦</div>
-            <h3>Intelligent Pre‑Compose</h3>
+            <h3>Intelligent Pre-Compose</h3>
             <p>
-              Three smart modes that maintain timing and prevent errors,
-              providing set-and-forget pre-compositions.
+              Three smart pre-composition modes that maintain timing relationships 
+              and prevent common errors for professional-grade organization.
             </p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🎨</div>
-            <h3>Color Management</h3>
+            <h3>Color Management System</h3>
             <p>
-              16 presets + unlimited custom hues. Visual organisation for
-              complex timelines.
+              16 beautiful preset colors plus unlimited custom options for visual 
+              organization of complex motion graphics projects.
             </p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🎭</div>
             <h3>Layer Creation Suite</h3>
             <p>
-              Perfect nulls, cameras, and adjustment layers require no manual
-              tweaking.
+              Generate perfect null objects, cameras, and adjustment layers with 
+              proper 3D setup and professional positioning automatically.
             </p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">⚡</div>
-            <h3>Automation Tools</h3>
+            <h3>Animation Tools</h3>
             <p>
-              Strategic keyframes, batch renaming, and layer manipulation keep
-              creative momentum.
+              Strategic keyframe placement, batch layer renaming, and manipulation 
+              tools that maintain creative momentum throughout your projects.
             </p>
           </div>
         </div>
@@ -914,20 +1082,20 @@
       <div class="container">
         <div class="relief-card">
           <div class="relief-text">
-            <h2>Layer Flow Relief</h2>
+            <h2>Workflow Relief</h2>
             <p>
-              Precomp pain? Layer chaos? Timeline tedium? Our users report
-              instant workflow relief with just one click. Layer Flow eliminates
-              the friction between your ideas and their execution, turning hours
-              of manual work into seconds of automated bliss.
+              Transform tedious manual tasks into streamlined automation. Layer Flow 
+              eliminates the friction between creative vision and technical execution, 
+              turning hours of repetitive work into seconds of effortless precision. 
+              Experience the relief of a truly optimized workflow.
             </p>
           </div>
           <div class="relief-image-wrapper">
-            <!-- Your 3D pill image -->
+            <!-- Your actual 3D pill image -->
             <div class="pill-glow">
               <img
                 src="3d-pill.png"
-                alt="Layer Flow Relief - 3D Medical Pill"
+                alt="Layer Flow Relief - Professional After Effects Workflow Tool"
                 class="relief-pill-3d"
               />
             </div>
@@ -942,11 +1110,11 @@
         <div class="stats-grid">
           <div class="stat-item">
             <h3>40+</h3>
-            <p>Functions</p>
+            <p>Professional Functions</p>
           </div>
           <div class="stat-item">
             <h3>9</h3>
-            <p>Categories</p>
+            <p>Tool Categories</p>
           </div>
           <div class="stat-item">
             <h3>1</h3>
@@ -954,16 +1122,16 @@
           </div>
           <div class="stat-item">
             <h3>100%</h3>
-            <p>Workflow Boost</p>
+            <p>Workflow Enhancement</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- DEMO (kept minimal placeholder) -->
-    <section class="demo" id="demo">
+    <section class="demo" id="demo" style="padding: 100px 0; background: var(--bg-light);">
       <div class="container">
-        <h2>See Layer Flow in Action</h2>
+        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">See Layer Flow in Action</h2>
         <div
           class="video-container"
           style="
@@ -979,7 +1147,7 @@
             width="100%"
             height="450"
             src="https://www.youtube.com/embed/TCu9JGneKEM"
-            title="Layer Flow Demo"
+            title="Layer Flow Demo - Professional After Effects Tools"
             frameborder="0"
             allowfullscreen
           ></iframe>
@@ -990,7 +1158,7 @@
     <!-- PRICING -->
     <section class="pricing" id="pricing">
       <div class="container">
-        <h2>Launch Sale — 75% OFF</h2>
+        <h2>Professional Tools at Launch Price</h2>
         <div class="price-card">
           <div
             style="
@@ -1013,20 +1181,23 @@
               display: inline-block;
             "
           >
-            🔥 Launch Special
+            🔥 Limited Time Offer
           </div>
           <h3>Layer Flow v1.0</h3>
           <ul class="price-features">
-            <li>40+ Professional Functions</li>
-            <li>Lifetime License</li>
-            <li>Complete Docs & Support</li>
-            <li>Instant Download</li>
+            <li>40+ Professional Automation Functions</li>
+            <li>Lifetime License - No Subscriptions</li>
+            <li>Complete Documentation & Support</li>
+            <li>Instant Download & Installation</li>
+            <li>Compatible with After Effects CC 2018+</li>
+            <li>Money-Back Guarantee</li>
           </ul>
           <a
             href="https://www.etsy.com/shop/KTForge"
             class="cta-button btn-glow"
             target="_blank"
-            >Buy on Etsy</a
+            rel="noopener noreferrer"
+            >Get Layer Flow Now</a
           >
         </div>
       </div>
