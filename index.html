@@ -1318,8 +1318,7 @@
           Contact Support
         </h2>
         <form
-          action="https://formspree.io/f/xyzjaded"
-          method="POST"
+          id="support-form"
           style="display: flex; flex-direction: column; gap: 1rem"
         >
           <input
@@ -1403,6 +1402,43 @@
         if (e.key === "Escape")
           document.getElementById("contact-popup").style.display = "none";
       });
+    </script>
+    <script>
+      document
+        .getElementById("support-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const form = e.target;
+          const status = document.getElementById("form-status");
+
+          const data = new FormData(form);
+          const endpoint = "https://formspree.io/f/xyzjaded";
+
+          try {
+            const res = await fetch(endpoint, {
+              method: "POST",
+              body: data,
+              headers: {
+                Accept: "application/json",
+              },
+            });
+
+            if (res.ok) {
+              status.innerText = "✅ Message sent successfully!";
+              form.reset();
+            } else {
+              const result = await res.json();
+              if (result.errors) {
+                status.innerText =
+                  "❌ " + result.errors.map((e) => e.message).join(", ");
+              } else {
+                status.innerText = "❌ Something went wrong. Please try again.";
+              }
+            }
+          } catch (error) {
+            status.innerText = "❌ Network error. Please try again.";
+          }
+        });
     </script>
 
     <style>
